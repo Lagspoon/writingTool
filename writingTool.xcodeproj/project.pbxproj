@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0947EFF818A05997005962B2 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0947EFF318A05996005962B2 /* 3.png */; };
+		0947EFF918A05997005962B2 /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = 0947EFF418A05996005962B2 /* 6.png */; };
+		0947EFFA18A05997005962B2 /* 9.png in Resources */ = {isa = PBXBuildFile; fileRef = 0947EFF518A05996005962B2 /* 9.png */; };
+		0947EFFB18A05997005962B2 /* MIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0947EFF718A05997005962B2 /* MIViewController.m */; };
+		0947EFFE18A059B1005962B2 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0947EFFC18A059B1005962B2 /* Main_iPhone.storyboard */; };
+		0947F00218A059DD005962B2 /* PHCameraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0947F00018A059DD005962B2 /* PHCameraVC.m */; };
+		0947F00318A059DD005962B2 /* photoPicker_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0947F00118A059DD005962B2 /* photoPicker_iPhone.storyboard */; };
+		0947F00618A05CC7005962B2 /* WTString.m in Sources */ = {isa = PBXBuildFile; fileRef = 0947F00518A05CC7005962B2 /* WTString.m */; };
+		0947F00918A05CE1005962B2 /* WTBool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0947F00818A05CE1005962B2 /* WTBool.m */; };
+		0947F00F18A05D81005962B2 /* WTAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 0947F00E18A05D81005962B2 /* WTAudio.m */; };
+		0947F01218A05DEF005962B2 /* WTImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0947F01118A05DEF005962B2 /* WTImage.m */; };
+		0947F01518A06103005962B2 /* WTDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0947F01418A06103005962B2 /* WTDate.m */; };
 		09FBA35D189FB3FE0029426A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09FBA35C189FB3FE0029426A /* Foundation.framework */; };
 		09FBA35F189FB3FE0029426A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09FBA35E189FB3FE0029426A /* CoreGraphics.framework */; };
 		09FBA361189FB3FE0029426A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09FBA360189FB3FE0029426A /* UIKit.framework */; };
@@ -35,6 +47,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0947EFF318A05996005962B2 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 3.png; path = addOn/microphone/microphone/3.png; sourceTree = SOURCE_ROOT; };
+		0947EFF418A05996005962B2 /* 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 6.png; path = addOn/microphone/microphone/6.png; sourceTree = SOURCE_ROOT; };
+		0947EFF518A05996005962B2 /* 9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 9.png; path = addOn/microphone/microphone/9.png; sourceTree = SOURCE_ROOT; };
+		0947EFF618A05996005962B2 /* MIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MIViewController.h; path = addOn/microphone/microphone/MIViewController.h; sourceTree = SOURCE_ROOT; };
+		0947EFF718A05997005962B2 /* MIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MIViewController.m; path = addOn/microphone/microphone/MIViewController.m; sourceTree = SOURCE_ROOT; };
+		0947EFFD18A059B1005962B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = addOn/microphone/microphone/Base.lproj/Main_iPhone.storyboard; sourceTree = SOURCE_ROOT; };
+		0947EFFF18A059DD005962B2 /* PHCameraVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PHCameraVC.h; path = addOn/photoPicker/photoPicker/PHCameraVC.h; sourceTree = SOURCE_ROOT; };
+		0947F00018A059DD005962B2 /* PHCameraVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PHCameraVC.m; path = addOn/photoPicker/photoPicker/PHCameraVC.m; sourceTree = SOURCE_ROOT; };
+		0947F00118A059DD005962B2 /* photoPicker_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = photoPicker_iPhone.storyboard; path = addOn/photoPicker/photoPicker/photoPicker_iPhone.storyboard; sourceTree = SOURCE_ROOT; };
+		0947F00418A05CC7005962B2 /* WTString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTString.h; sourceTree = "<group>"; };
+		0947F00518A05CC7005962B2 /* WTString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTString.m; sourceTree = "<group>"; };
+		0947F00718A05CE1005962B2 /* WTBool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTBool.h; sourceTree = "<group>"; };
+		0947F00818A05CE1005962B2 /* WTBool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTBool.m; sourceTree = "<group>"; };
+		0947F00D18A05D81005962B2 /* WTAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTAudio.h; sourceTree = "<group>"; };
+		0947F00E18A05D81005962B2 /* WTAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTAudio.m; sourceTree = "<group>"; };
+		0947F01018A05DEF005962B2 /* WTImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTImage.h; sourceTree = "<group>"; };
+		0947F01118A05DEF005962B2 /* WTImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTImage.m; sourceTree = "<group>"; };
+		0947F01318A06103005962B2 /* WTDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTDate.h; sourceTree = "<group>"; };
+		0947F01418A06103005962B2 /* WTDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTDate.m; sourceTree = "<group>"; };
 		09FBA359189FB3FE0029426A /* writingTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = writingTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09FBA35C189FB3FE0029426A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		09FBA35E189FB3FE0029426A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -81,9 +112,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0947EFED189FBAE2005962B2 /* addOn */ = {
+			isa = PBXGroup;
+			children = (
+				0947EFEF189FBB00005962B2 /* microphone */,
+				0947EFEE189FBAF3005962B2 /* photoPicker */,
+			);
+			name = addOn;
+			path = writingTool;
+			sourceTree = "<group>";
+		};
+		0947EFEE189FBAF3005962B2 /* photoPicker */ = {
+			isa = PBXGroup;
+			children = (
+				0947EFFF18A059DD005962B2 /* PHCameraVC.h */,
+				0947F00018A059DD005962B2 /* PHCameraVC.m */,
+				0947F00118A059DD005962B2 /* photoPicker_iPhone.storyboard */,
+			);
+			name = photoPicker;
+			sourceTree = "<group>";
+		};
+		0947EFEF189FBB00005962B2 /* microphone */ = {
+			isa = PBXGroup;
+			children = (
+				0947EFFC18A059B1005962B2 /* Main_iPhone.storyboard */,
+				0947EFF318A05996005962B2 /* 3.png */,
+				0947EFF418A05996005962B2 /* 6.png */,
+				0947EFF518A05996005962B2 /* 9.png */,
+				0947EFF618A05996005962B2 /* MIViewController.h */,
+				0947EFF718A05997005962B2 /* MIViewController.m */,
+			);
+			name = microphone;
+			sourceTree = "<group>";
+		};
 		09FBA350189FB3FD0029426A = {
 			isa = PBXGroup;
 			children = (
+				0947EFED189FBAE2005962B2 /* addOn */,
 				09FBA362189FB3FE0029426A /* writingTool */,
 				09FBA384189FB3FE0029426A /* writingToolTests */,
 				09FBA35B189FB3FE0029426A /* Frameworks */,
@@ -120,6 +185,16 @@
 				09FBA371189FB3FE0029426A /* Main_iPad.storyboard */,
 				09FBA374189FB3FE0029426A /* WTViewController.h */,
 				09FBA375189FB3FE0029426A /* WTViewController.m */,
+				0947F00418A05CC7005962B2 /* WTString.h */,
+				0947F00518A05CC7005962B2 /* WTString.m */,
+				0947F00718A05CE1005962B2 /* WTBool.h */,
+				0947F00818A05CE1005962B2 /* WTBool.m */,
+				0947F01318A06103005962B2 /* WTDate.h */,
+				0947F01418A06103005962B2 /* WTDate.m */,
+				0947F00D18A05D81005962B2 /* WTAudio.h */,
+				0947F00E18A05D81005962B2 /* WTAudio.m */,
+				0947F01018A05DEF005962B2 /* WTImage.h */,
+				0947F01118A05DEF005962B2 /* WTImage.m */,
 				09FBA377189FB3FE0029426A /* Images.xcassets */,
 				09FBA363189FB3FE0029426A /* Supporting Files */,
 			);
@@ -232,10 +307,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0947EFF918A05997005962B2 /* 6.png in Resources */,
+				0947EFF818A05997005962B2 /* 3.png in Resources */,
+				0947EFFA18A05997005962B2 /* 9.png in Resources */,
 				09FBA373189FB3FE0029426A /* Main_iPad.storyboard in Resources */,
+				0947EFFE18A059B1005962B2 /* Main_iPhone.storyboard in Resources */,
 				09FBA378189FB3FE0029426A /* Images.xcassets in Resources */,
 				09FBA370189FB3FE0029426A /* Main_iPhone.storyboard in Resources */,
 				09FBA367189FB3FE0029426A /* InfoPlist.strings in Resources */,
+				0947F00318A059DD005962B2 /* photoPicker_iPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,8 +334,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0947F01518A06103005962B2 /* WTDate.m in Sources */,
+				0947F01218A05DEF005962B2 /* WTImage.m in Sources */,
+				0947F00F18A05D81005962B2 /* WTAudio.m in Sources */,
 				09FBA369189FB3FE0029426A /* main.m in Sources */,
 				09FBA36D189FB3FE0029426A /* WTAppDelegate.m in Sources */,
+				0947F00918A05CE1005962B2 /* WTBool.m in Sources */,
+				0947EFFB18A05997005962B2 /* MIViewController.m in Sources */,
+				0947F00618A05CC7005962B2 /* WTString.m in Sources */,
+				0947F00218A059DD005962B2 /* PHCameraVC.m in Sources */,
 				09FBA376189FB3FE0029426A /* WTViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,6 +366,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		0947EFFC18A059B1005962B2 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0947EFFD18A059B1005962B2 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
 		09FBA365189FB3FE0029426A /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -475,6 +570,7 @@
 				09FBA390189FB3FE0029426A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		09FBA391189FB3FE0029426A /* Build configuration list for PBXNativeTarget "writingToolTests" */ = {
 			isa = XCConfigurationList;
@@ -483,6 +579,7 @@
 				09FBA393189FB3FE0029426A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

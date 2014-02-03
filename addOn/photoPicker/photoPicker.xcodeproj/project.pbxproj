@@ -19,7 +19,8 @@
 		0904A450182BF18500FD9D5D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0904A44E182BF18500FD9D5D /* InfoPlist.strings */; };
 		0904A452182BF18500FD9D5D /* photoPickerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0904A451182BF18500FD9D5D /* photoPickerTests.m */; };
 		0904A460182BF47A00FD9D5D /* PHCameraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0904A45E182BF47A00FD9D5D /* PHCameraVC.m */; };
-		09FBA397189FB6670029426A /* photoPicker_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09FBA396189FB6670029426A /* photoPicker_iPad.storyboard */; };
+		0947EFEA189FB8C0005962B2 /* photoPicker_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0947EFE9189FB8C0005962B2 /* photoPicker_iPhone.storyboard */; };
+		0947EFEC189FB8CD005962B2 /* photoPicker_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0947EFEB189FB8CD005962B2 /* photoPicker_iPad.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +51,8 @@
 		0904A451182BF18500FD9D5D /* photoPickerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = photoPickerTests.m; sourceTree = "<group>"; };
 		0904A45D182BF47A00FD9D5D /* PHCameraVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHCameraVC.h; sourceTree = "<group>"; };
 		0904A45E182BF47A00FD9D5D /* PHCameraVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHCameraVC.m; sourceTree = "<group>"; };
-		09FBA396189FB6670029426A /* photoPicker_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = photoPicker_iPad.storyboard; sourceTree = "<group>"; };
+		0947EFE9189FB8C0005962B2 /* photoPicker_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = photoPicker_iPhone.storyboard; path = photoPicker/photoPicker_iPhone.storyboard; sourceTree = "<group>"; };
+		0947EFEB189FB8CD005962B2 /* photoPicker_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = photoPicker_iPad.storyboard; path = photoPicker/photoPicker_iPad.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,8 @@
 		0904A420182BF18500FD9D5D = {
 			isa = PBXGroup;
 			children = (
+				0947EFE9189FB8C0005962B2 /* photoPicker_iPhone.storyboard */,
+				0947EFEB189FB8CD005962B2 /* photoPicker_iPad.storyboard */,
 				0904A432182BF18500FD9D5D /* photoPicker */,
 				0904A44B182BF18500FD9D5D /* photoPickerTests */,
 				0904A42B182BF18500FD9D5D /* Frameworks */,
@@ -110,7 +114,6 @@
 		0904A432182BF18500FD9D5D /* photoPicker */ = {
 			isa = PBXGroup;
 			children = (
-				09FBA396189FB6670029426A /* photoPicker_iPad.storyboard */,
 				0904A45D182BF47A00FD9D5D /* PHCameraVC.h */,
 				0904A45E182BF47A00FD9D5D /* PHCameraVC.m */,
 				0904A43B182BF18500FD9D5D /* PHAppDelegate.h */,
@@ -226,8 +229,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0947EFEA189FB8C0005962B2 /* photoPicker_iPhone.storyboard in Resources */,
 				0904A43F182BF18500FD9D5D /* Images.xcassets in Resources */,
-				09FBA397189FB6670029426A /* photoPicker_iPad.storyboard in Resources */,
+				0947EFEC189FB8CD005962B2 /* photoPicker_iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
