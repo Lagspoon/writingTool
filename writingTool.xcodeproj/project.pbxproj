@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		090F237718A4FAD50095F2E7 /* writingTool_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 090F237518A4FAD50095F2E7 /* writingTool_iPhone.storyboard */; };
+		090F237B18A4FB810095F2E7 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 090F237918A4FB810095F2E7 /* camera.png */; };
+		090F237C18A4FB810095F2E7 /* glass.png in Resources */ = {isa = PBXBuildFile; fileRef = 090F237A18A4FB810095F2E7 /* glass.png */; };
 		0947EFF818A05997005962B2 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0947EFF318A05996005962B2 /* 3.png */; };
 		0947EFF918A05997005962B2 /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = 0947EFF418A05996005962B2 /* 6.png */; };
 		0947EFFA18A05997005962B2 /* 9.png in Resources */ = {isa = PBXBuildFile; fileRef = 0947EFF518A05996005962B2 /* 9.png */; };
@@ -25,8 +28,6 @@
 		09FBA367189FB3FE0029426A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 09FBA365189FB3FE0029426A /* InfoPlist.strings */; };
 		09FBA369189FB3FE0029426A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FBA368189FB3FE0029426A /* main.m */; };
 		09FBA36D189FB3FE0029426A /* WTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FBA36C189FB3FE0029426A /* WTAppDelegate.m */; };
-		09FBA370189FB3FE0029426A /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09FBA36E189FB3FE0029426A /* Main_iPhone.storyboard */; };
-		09FBA373189FB3FE0029426A /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09FBA371189FB3FE0029426A /* Main_iPad.storyboard */; };
 		09FBA376189FB3FE0029426A /* WTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FBA375189FB3FE0029426A /* WTViewController.m */; };
 		09FBA378189FB3FE0029426A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09FBA377189FB3FE0029426A /* Images.xcassets */; };
 		09FBA37F189FB3FE0029426A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09FBA37E189FB3FE0029426A /* XCTest.framework */; };
@@ -47,6 +48,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		090F237618A4FAD50095F2E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/writingTool_iPhone.storyboard; sourceTree = "<group>"; };
+		090F237918A4FB810095F2E7 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
+		090F237A18A4FB810095F2E7 /* glass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glass.png; sourceTree = "<group>"; };
 		0947EFF318A05996005962B2 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 3.png; path = addOn/microphone/microphone/3.png; sourceTree = SOURCE_ROOT; };
 		0947EFF418A05996005962B2 /* 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 6.png; path = addOn/microphone/microphone/6.png; sourceTree = SOURCE_ROOT; };
 		0947EFF518A05996005962B2 /* 9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 9.png; path = addOn/microphone/microphone/9.png; sourceTree = SOURCE_ROOT; };
@@ -76,8 +80,6 @@
 		09FBA36A189FB3FE0029426A /* writingTool-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "writingTool-Prefix.pch"; sourceTree = "<group>"; };
 		09FBA36B189FB3FE0029426A /* WTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WTAppDelegate.h; sourceTree = "<group>"; };
 		09FBA36C189FB3FE0029426A /* WTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WTAppDelegate.m; sourceTree = "<group>"; };
-		09FBA36F189FB3FE0029426A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		09FBA372189FB3FE0029426A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		09FBA374189FB3FE0029426A /* WTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WTViewController.h; sourceTree = "<group>"; };
 		09FBA375189FB3FE0029426A /* WTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WTViewController.m; sourceTree = "<group>"; };
 		09FBA377189FB3FE0029426A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -112,6 +114,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		090F237818A4FB6D0095F2E7 /* media */ = {
+			isa = PBXGroup;
+			children = (
+				090F237918A4FB810095F2E7 /* camera.png */,
+				090F237A18A4FB810095F2E7 /* glass.png */,
+			);
+			name = media;
+			sourceTree = "<group>";
+		};
 		0947EFED189FBAE2005962B2 /* addOn */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +159,7 @@
 		09FBA350189FB3FD0029426A = {
 			isa = PBXGroup;
 			children = (
+				090F237818A4FB6D0095F2E7 /* media */,
 				0947EFED189FBAE2005962B2 /* addOn */,
 				09FBA362189FB3FE0029426A /* writingTool */,
 				09FBA384189FB3FE0029426A /* writingToolTests */,
@@ -181,8 +193,7 @@
 			children = (
 				09FBA36B189FB3FE0029426A /* WTAppDelegate.h */,
 				09FBA36C189FB3FE0029426A /* WTAppDelegate.m */,
-				09FBA36E189FB3FE0029426A /* Main_iPhone.storyboard */,
-				09FBA371189FB3FE0029426A /* Main_iPad.storyboard */,
+				090F237518A4FAD50095F2E7 /* writingTool_iPhone.storyboard */,
 				09FBA374189FB3FE0029426A /* WTViewController.h */,
 				09FBA375189FB3FE0029426A /* WTViewController.m */,
 				0947F00418A05CC7005962B2 /* WTString.h */,
@@ -309,11 +320,12 @@
 			files = (
 				0947EFF918A05997005962B2 /* 6.png in Resources */,
 				0947EFF818A05997005962B2 /* 3.png in Resources */,
+				090F237C18A4FB810095F2E7 /* glass.png in Resources */,
 				0947EFFA18A05997005962B2 /* 9.png in Resources */,
-				09FBA373189FB3FE0029426A /* Main_iPad.storyboard in Resources */,
 				0947EFFE18A059B1005962B2 /* Main_iPhone.storyboard in Resources */,
+				090F237B18A4FB810095F2E7 /* camera.png in Resources */,
 				09FBA378189FB3FE0029426A /* Images.xcassets in Resources */,
-				09FBA370189FB3FE0029426A /* Main_iPhone.storyboard in Resources */,
+				090F237718A4FAD50095F2E7 /* writingTool_iPhone.storyboard in Resources */,
 				09FBA367189FB3FE0029426A /* InfoPlist.strings in Resources */,
 				0947F00318A059DD005962B2 /* photoPicker_iPhone.storyboard in Resources */,
 			);
@@ -366,6 +378,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		090F237518A4FAD50095F2E7 /* writingTool_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				090F237618A4FAD50095F2E7 /* Base */,
+			);
+			name = writingTool_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
 		0947EFFC18A059B1005962B2 /* Main_iPhone.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -380,22 +400,6 @@
 				09FBA366189FB3FE0029426A /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		09FBA36E189FB3FE0029426A /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				09FBA36F189FB3FE0029426A /* Base */,
-			);
-			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		09FBA371189FB3FE0029426A /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				09FBA372189FB3FE0029426A /* Base */,
-			);
-			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		09FBA387189FB3FE0029426A /* InfoPlist.strings */ = {
