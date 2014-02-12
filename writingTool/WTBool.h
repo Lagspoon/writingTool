@@ -10,5 +10,6 @@
 
 @interface WTBool : UIViewController
 //comment add on github
+//comment add on xcode
 @property (weak, nonatomic) IBOutlet UISwitch *switchButton;
 @end
