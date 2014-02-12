@@ -12,14 +12,13 @@
 #import "WTImage.h"
 #import "WTString.h"
 #import "WTDate.h"
-
-#define storyboardWriteTool @"writingTool_iPhone"
+#import "WTSet.h"
 
 @interface WTViewController ()
 
-@property (nonatomic) NSAttributeType attributeType;
+//@property (nonatomic) NSAttributeType attributeType;
 @property (nonatomic, strong) NSString *viewTitle;
-@property (nonatomic, strong) UIViewController *viewController;
+//@property (nonatomic, strong) UIViewController *viewController;
 @property (weak, nonatomic) IBOutlet UIView *container;
 @property UIViewController  *currentDetailViewController;
 
@@ -35,55 +34,73 @@
     navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel)];
     navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(save)];
 
-    self.attributeType = [self.selectedAttribute attributeType];
-    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:storyboardWriteTool bundle:nil];
+    UIViewController *viewControllerToPresent;
 
-    if (self.attributeType == NSStringAttributeType ) {
+    if ([self.selectedProperty isKindOfClass:[NSAttributeDescription class]]) {
+        viewControllerToPresent = [self selectTheViewControllerForAttributeDescription:(NSAttributeDescription *) self.selectedProperty];
+    }
+    else if ([self.selectedProperty isKindOfClass:[NSRelationshipDescription class]]) {
+        viewControllerToPresent = [self selectTheViewControllerForRelationshipDescription:(NSRelationshipDescription *) self.selectedProperty];
+    }
 
-        WTString *viewController = [storyBoard instantiateViewControllerWithIdentifier:@"string"];
-        viewController.editableField.text = [self.editedObject valueForKey:[self.selectedAttribute name]];
-        viewController.editableField.placeholder = [self.attributeDictionary valueForKey:@"label"];
+    [self presentDetailController:viewControllerToPresent];
+}
+
+
+- (UIViewController *) selectTheViewControllerForRelationshipDescription:(NSRelationshipDescription *) relationShipDescription {
+
+    WTSet *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"set"];
+    viewController.managedObjectContext = self.managedObjectContext;
+    return viewController;
+}
+
+
+- (UIViewController *) selectTheViewControllerForAttributeDescription:(NSAttributeDescription *) attributeDescription {
+    NSAttributeType attributeType = [attributeDescription attributeType];
+    UIViewController *viewControllerToReturn;
+
+    if (attributeType == NSStringAttributeType ) {
+        WTString *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"string"];
+        viewController.editableField.text = [self.editedObject valueForKey:[attributeDescription name]];
+        viewController.editableField.placeholder = self.fieldLabel;
         [viewController.editableField becomeFirstResponder];
-        self.viewController = viewController;
-
-        [self presentDetailController:viewController];
-
+        viewControllerToReturn = viewController;
     }
 
-    else if ((self.attributeType == NSInteger16AttributeType) ||
-             (self.attributeType == NSInteger32AttributeType) ||
-             (self.attributeType == NSInteger64AttributeType) ||
-             (self.attributeType == NSDecimalAttributeType) ||
-             (self.attributeType == NSDoubleAttributeType) ||
-             (self.attributeType == NSFloatAttributeType)
+    else if ((attributeType == NSInteger16AttributeType) ||
+             (attributeType == NSInteger32AttributeType) ||
+             (attributeType == NSInteger64AttributeType) ||
+             (attributeType == NSDecimalAttributeType) ||
+             (attributeType == NSDoubleAttributeType) ||
+             (attributeType == NSFloatAttributeType)
              ) {
-
-
-//        NSNumber *value = (NSNumber*) [self.editedObject valueForKey:[self.attributeDescription name]];
-//        self.textField.text = [value stringValue];
+        //        NSNumber *value = (NSNumber*) [self.editedObject valueForKey:[self.attributeDescription name]];
+        //        self.textField.text = [value stringValue];
+//        viewControllerToReturn =
     }
 
-    else if (self.attributeType == NSBooleanAttributeType) {
+    else if (attributeType == NSBooleanAttributeType) {
         WTBool *viewController = [[WTBool alloc] init];
-        viewController.switchButton.on = (BOOL)[self.editedObject valueForKey:[self.selectedAttribute name]];
+        viewController.switchButton.on = (BOOL)[self.editedObject valueForKey:[attributeDescription name]];
+        viewControllerToReturn = viewController;
     }
 
-    else if (self.attributeType == NSDateAttributeType) {
+    else if (attributeType == NSDateAttributeType) {
         WTDate *viewController = [[WTDate alloc] init];
-        NSDate *theDate =  [self.editedObject valueForKey:[self.selectedAttribute name]];
+        NSDate *theDate =  [self.editedObject valueForKey:[attributeDescription name]];
         if (theDate) {
             viewController.datePicker.date = theDate;
         } else {
             viewController.datePicker.date = [NSDate date];
         }
+        viewControllerToReturn = viewController;
     }
 
-    else if(self.attributeType == NSBinaryDataAttributeType) {
-        
-        
+    else if(attributeType == NSBinaryDataAttributeType) {
+//  viewControllerToReturn =
     }
 
-    
+    return viewControllerToReturn;
 }
 
 
@@ -95,18 +112,36 @@
 
     // Set the action name for the undo operation.
     NSUndoManager * undoManager = [[self.editedObject managedObjectContext] undoManager];
-    [undoManager setActionName:[NSString stringWithFormat:@"%@", self.selectedAttribute.name]];
-
+    [undoManager setActionName:[NSString stringWithFormat:@"%@", self.selectedProperty.description]];
+    NSError *error;
     // Pass current value to the edited object, then pop.
-    if (self.attributeType == NSStringAttributeType ) {
-        WTString *specificVC = [[self childViewControllers] firstObject];
-        [self.editedObject setValue:specificVC.editableField.text forKey:[self.selectedAttribute name]];
+
+    if ([self.selectedProperty isKindOfClass:[NSAttributeDescription class]]) {
+        NSAttributeDescription *attributeDescription = (NSAttributeDescription *) self.selectedProperty;
+        NSAttributeType attributeType = [attributeDescription attributeType];
+
+        if (attributeType == NSStringAttributeType ) {
+            WTString *specificVC = [[self childViewControllers] firstObject];
+            NSLog(@"editableField = %@",specificVC.editableField.text);
+            [self.editedObject setValue:specificVC.editableField.text forKey:[attributeDescription name]];
+
+            [self.managedObjectContext save:&error];
+            [[self.managedObjectContext parentContext] save:&error];
+
+        }
+        if (attributeType == NSDateAttributeType) {
+            //[self.editedObject setValue:self.datePicker.date forKey:[self.selectedAttribute name]];
+        }
+        else {
+            //[self.editedObject setValue:self.textField.text forKey:[self.attributeDescription name]];
+        }
     }
-    if (self.attributeType == NSDateAttributeType) {
-        //[self.editedObject setValue:self.datePicker.date forKey:[self.selectedAttribute name]];
-    }
-    else {
-        //[self.editedObject setValue:self.textField.text forKey:[self.attributeDescription name]];
+
+    else if ([self.selectedProperty isKindOfClass:[NSAttributeDescription class]]) {
+
+a FINIR sauvegarde avec indexPathsForSelectedRows dans WTSet
+
+
     }
 #warning yo complete (binary and bool)
     [self.navigationController popViewControllerAnimated:YES];

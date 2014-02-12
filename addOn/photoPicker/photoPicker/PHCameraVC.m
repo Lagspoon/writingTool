@@ -33,8 +33,6 @@
         NSMutableArray *toolbarItems = [self.toolBar.items mutableCopy];
         [toolbarItems removeObjectAtIndex:2];
         [self.toolBar setItems:toolbarItems animated:NO];
-        #warning optional put an alert when no device available
-#warning check the Localization file
         UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
                                                               message:NSLocalizedString(@"Device has no camera",nil)
                                                              delegate:nil

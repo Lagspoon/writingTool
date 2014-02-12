@@ -11,6 +11,8 @@
 @interface WTViewController : UIViewController
 
 @property (nonatomic, strong) NSManagedObject *editedObject;
-@property (nonatomic, strong) NSDictionary *attributeDictionary;
-@property (nonatomic, strong) NSAttributeDescription *selectedAttribute;
+@property (nonatomic, strong) NSString *fieldLabel;
+@property (nonatomic, strong) NSPropertyDescription *selectedProperty;
+//@property (nonatomic, strong) NSAttributeDescription *selectedAttribute;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @end
