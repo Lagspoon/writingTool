@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface WTBool : UIViewController
-
+//comment add on github
 @property (weak, nonatomic) IBOutlet UISwitch *switchButton;
 @end
