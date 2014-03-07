@@ -9,7 +9,7 @@
 #import "WTBool.h"
 
 @interface WTBool ()
-
+//comment from xcode
 @end
 
 @implementation WTBool

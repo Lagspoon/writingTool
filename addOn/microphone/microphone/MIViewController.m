@@ -22,6 +22,20 @@
 
 @implementation MIViewController
 
+
+- (NSURL *) outputFileURL {
+    if (!_outputFileURL) {
+        // Set the audio file
+        NSArray *pathComponents = [NSArray arrayWithObjects:
+                                   [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
+                                   @"MyAudioMemo.m4a",
+                                   nil];
+        _outputFileURL = [NSURL fileURLWithPathComponents:pathComponents];
+    }
+    return _outputFileURL;
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -30,12 +44,6 @@
     [self.controlStop setEnabled:NO];
     [self.controlPlay setEnabled:NO];
 
-    // Set the audio file
-    NSArray *pathComponents = [NSArray arrayWithObjects:
-                               [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
-                               @"MyAudioMemo.m4a",
-                               nil];
-    NSURL *outputFileURL = [NSURL fileURLWithPathComponents:pathComponents];
 
     // Setup audio session
     AVAudioSession *session = [AVAudioSession sharedInstance];
@@ -49,7 +57,7 @@
     [recordSetting setValue:[NSNumber numberWithInt: 2] forKey:AVNumberOfChannelsKey];
 
     // Initiate and prepare the recorder
-    self.recorder = [[AVAudioRecorder alloc] initWithURL:outputFileURL settings:recordSetting error:NULL];
+    self.recorder = [[AVAudioRecorder alloc] initWithURL:self.outputFileURL settings:recordSetting error:NULL];
     self.recorder.delegate = self;
     self.recorder.meteringEnabled = YES;
     [self.recorder prepareToRecord];
@@ -68,11 +76,7 @@
     [self.progressView setProgress:(value*10) animated:YES];
    }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 - (IBAction)controlStop:(id)sender {
     [self.recorder stop];
 
@@ -100,8 +104,8 @@
         AVAudioSession *session = [AVAudioSession sharedInstance];
         [session setActive:YES error:nil];
 
-        // Start recording
-        [self.recorder record];
+        // Start recording for 3 seconds
+        [self.recorder recordForDuration:180];
         self.controlRecord.image = [UIImage imageNamed:@"6.png"];
 
     } else {

@@ -13,7 +13,6 @@
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
 @property (nonatomic, weak) IBOutlet UIToolbar *toolBar;
 @property (nonatomic) UIImagePickerController *imagePickerController;
-@property (nonatomic) NSMutableArray *capturedImages;
 
 @end
 

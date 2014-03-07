@@ -10,4 +10,6 @@
 
 @interface WTAudio : MIViewController
 
+@property (nonatomic, strong) NSData *audioData;
+
 @end

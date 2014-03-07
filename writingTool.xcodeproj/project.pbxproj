@@ -19,6 +19,7 @@
 		0947F00F18A05D81005962B2 /* WTAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 0947F00E18A05D81005962B2 /* WTAudio.m */; };
 		0947F01218A05DEF005962B2 /* WTImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0947F01118A05DEF005962B2 /* WTImage.m */; };
 		0947F01518A06103005962B2 /* WTDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0947F01418A06103005962B2 /* WTDate.m */; };
+		09F8626718AC2BCF00CDBCBC /* WTSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F8626618AC2BCF00CDBCBC /* WTSet.m */; };
 		09FBA35D189FB3FE0029426A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09FBA35C189FB3FE0029426A /* Foundation.framework */; };
 		09FBA35F189FB3FE0029426A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09FBA35E189FB3FE0029426A /* CoreGraphics.framework */; };
 		09FBA361189FB3FE0029426A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09FBA360189FB3FE0029426A /* UIKit.framework */; };
@@ -66,6 +67,8 @@
 		0947F01118A05DEF005962B2 /* WTImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTImage.m; sourceTree = "<group>"; };
 		0947F01318A06103005962B2 /* WTDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTDate.h; sourceTree = "<group>"; };
 		0947F01418A06103005962B2 /* WTDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTDate.m; sourceTree = "<group>"; };
+		09F8626518AC2BCF00CDBCBC /* WTSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSet.h; sourceTree = "<group>"; };
+		09F8626618AC2BCF00CDBCBC /* WTSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTSet.m; sourceTree = "<group>"; };
 		09FBA359189FB3FE0029426A /* writingTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = writingTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09FBA35C189FB3FE0029426A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		09FBA35E189FB3FE0029426A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -189,6 +192,8 @@
 				0947F00518A05CC7005962B2 /* WTString.m */,
 				0947F00718A05CE1005962B2 /* WTBool.h */,
 				0947F00818A05CE1005962B2 /* WTBool.m */,
+				09F8626518AC2BCF00CDBCBC /* WTSet.h */,
+				09F8626618AC2BCF00CDBCBC /* WTSet.m */,
 				0947F01318A06103005962B2 /* WTDate.h */,
 				0947F01418A06103005962B2 /* WTDate.m */,
 				0947F00D18A05D81005962B2 /* WTAudio.h */,
@@ -339,6 +344,7 @@
 				0947F00F18A05D81005962B2 /* WTAudio.m in Sources */,
 				09FBA369189FB3FE0029426A /* main.m in Sources */,
 				09FBA36D189FB3FE0029426A /* WTAppDelegate.m in Sources */,
+				09F8626718AC2BCF00CDBCBC /* WTSet.m in Sources */,
 				0947F00918A05CE1005962B2 /* WTBool.m in Sources */,
 				0947EFFB18A05997005962B2 /* MIViewController.m in Sources */,
 				0947F00618A05CC7005962B2 /* WTString.m in Sources */,

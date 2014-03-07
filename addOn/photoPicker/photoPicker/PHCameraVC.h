@@ -10,4 +10,6 @@
 
 @interface PHCameraVC : UIViewController <UIImagePickerControllerDelegate>
 
+@property (nonatomic) NSMutableArray *capturedImages;
+
 @end

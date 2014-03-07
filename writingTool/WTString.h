@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface WTString : UIViewController
+//comment from xcode
+@property (strong, nonatomic) IBOutlet UITextField *editableField;
 
-@property (weak, nonatomic) IBOutlet UITextField *editableField;
 @end

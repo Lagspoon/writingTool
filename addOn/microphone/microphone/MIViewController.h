@@ -11,5 +11,5 @@
 
 @interface MIViewController : UIViewController <AVAudioRecorderDelegate, AVAudioPlayerDelegate>
 
-
+@property (nonatomic, strong) NSURL *outputFileURL;
 @end

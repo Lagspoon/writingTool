@@ -13,12 +13,11 @@
 #import "WTString.h"
 #import "WTDate.h"
 #import "WTSet.h"
+#import "WTNumber.h"
 
 @interface WTViewController ()
 
-//@property (nonatomic) NSAttributeType attributeType;
 @property (nonatomic, strong) NSString *viewTitle;
-//@property (nonatomic, strong) UIViewController *viewController;
 @property (weak, nonatomic) IBOutlet UIView *container;
 @property UIViewController  *currentDetailViewController;
 
@@ -34,74 +33,133 @@
     navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel)];
     navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(save)];
 
-    UIViewController *viewControllerToPresent;
+    UIViewController *detailViewController = [self selectViewControllerForProperty:self.selectedProperty];
 
-    if ([self.selectedProperty isKindOfClass:[NSAttributeDescription class]]) {
-        viewControllerToPresent = [self selectTheViewControllerForAttributeDescription:(NSAttributeDescription *) self.selectedProperty];
-    }
-    else if ([self.selectedProperty isKindOfClass:[NSRelationshipDescription class]]) {
-        viewControllerToPresent = [self selectTheViewControllerForRelationshipDescription:(NSRelationshipDescription *) self.selectedProperty];
-    }
-
-    [self presentDetailController:viewControllerToPresent];
+    [self presentDetailController: detailViewController];
+    [self updateDetailController:detailViewController];
 }
 
 
-- (UIViewController *) selectTheViewControllerForRelationshipDescription:(NSRelationshipDescription *) relationShipDescription {
+- (NSUInteger) propertyTypeToInteger:(NSPropertyDescription *) propertyDescription {
 
-    WTSet *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"set"];
-    viewController.managedObjectContext = self.managedObjectContext;
-    return viewController;
-}
+    NSUInteger propertyTypeInInteger = 0;
 
+    if ([propertyDescription isKindOfClass:[NSAttributeDescription class]]) {
+        NSAttributeDescription *attributeDescription = (NSAttributeDescription *) propertyDescription;
+        NSAttributeType attributeType = [attributeDescription attributeType];
 
-- (UIViewController *) selectTheViewControllerForAttributeDescription:(NSAttributeDescription *) attributeDescription {
-    NSAttributeType attributeType = [attributeDescription attributeType];
-    UIViewController *viewControllerToReturn;
+        if (attributeType == NSStringAttributeType ) propertyTypeInInteger = 1;
 
-    if (attributeType == NSStringAttributeType ) {
-        WTString *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"string"];
-        viewController.editableField.text = [self.editedObject valueForKey:[attributeDescription name]];
-        viewController.editableField.placeholder = self.fieldLabel;
-        [viewController.editableField becomeFirstResponder];
-        viewControllerToReturn = viewController;
-    }
-
-    else if ((attributeType == NSInteger16AttributeType) ||
-             (attributeType == NSInteger32AttributeType) ||
-             (attributeType == NSInteger64AttributeType) ||
-             (attributeType == NSDecimalAttributeType) ||
-             (attributeType == NSDoubleAttributeType) ||
-             (attributeType == NSFloatAttributeType)
-             ) {
-        //        NSNumber *value = (NSNumber*) [self.editedObject valueForKey:[self.attributeDescription name]];
-        //        self.textField.text = [value stringValue];
-//        viewControllerToReturn =
-    }
-
-    else if (attributeType == NSBooleanAttributeType) {
-        WTBool *viewController = [[WTBool alloc] init];
-        viewController.switchButton.on = (BOOL)[self.editedObject valueForKey:[attributeDescription name]];
-        viewControllerToReturn = viewController;
-    }
-
-    else if (attributeType == NSDateAttributeType) {
-        WTDate *viewController = [[WTDate alloc] init];
-        NSDate *theDate =  [self.editedObject valueForKey:[attributeDescription name]];
-        if (theDate) {
-            viewController.datePicker.date = theDate;
-        } else {
-            viewController.datePicker.date = [NSDate date];
+        else if ((attributeType == NSInteger16AttributeType) ||
+                 (attributeType == NSInteger32AttributeType) ||
+                 (attributeType == NSInteger64AttributeType) ||
+                 (attributeType == NSDecimalAttributeType) ||
+                 (attributeType == NSDoubleAttributeType) ||
+                 (attributeType == NSFloatAttributeType)
+                 ) {
+            propertyTypeInInteger = 2;
         }
-        viewControllerToReturn = viewController;
+
+        else if (attributeType == NSBooleanAttributeType)   propertyTypeInInteger = 3;
+        else if (attributeType == NSDateAttributeType)      propertyTypeInInteger = 4;
+        else if (attributeType == NSBinaryDataAttributeType) {
+            NSString *definedType = [attributeDescription.userInfo valueForKey:@"type"];
+            if      ([definedType isEqualToString:@"audio"])     propertyTypeInInteger = 5;
+            else if ([definedType isEqualToString:@"image"])     propertyTypeInInteger = 6;
+        }
     }
 
-    else if(attributeType == NSBinaryDataAttributeType) {
-//  viewControllerToReturn =
+    else if ([propertyDescription isKindOfClass:[NSRelationshipDescription class]]) {
+        propertyTypeInInteger = 7;
     }
 
-    return viewControllerToReturn;
+        return propertyTypeInInteger;
 }
+
+
+- (UIViewController *) selectViewControllerForProperty:(NSPropertyDescription *)propertyDescription {
+
+    NSString *viewControllerIdentifier;
+
+    switch ([self propertyTypeToInteger:self.selectedProperty]) {
+        case 1:
+            viewControllerIdentifier = @"string";
+            break;
+        case 2:
+            viewControllerIdentifier = @"number";
+            break;
+        case 3:
+            viewControllerIdentifier = @"bool";
+            break;
+        case 4:
+            viewControllerIdentifier = @"date";
+            break;
+        case 5:
+            viewControllerIdentifier = @"audio";
+            break;
+        case 6:
+            viewControllerIdentifier = @"image";
+            break;
+        case 7:
+            viewControllerIdentifier = @"set";
+            break;
+        default:
+            break;
+    }
+    return [self.storyboard instantiateViewControllerWithIdentifier:viewControllerIdentifier];
+}
+
+
+- (void) updateDetailController :(UIViewController *)viewController {
+
+    if ([viewController isKindOfClass:[WTString class]]) {
+        WTString *stringVC = (WTString *) viewController;
+        stringVC.editableField.text = [self.editedObject valueForKey:[self.selectedProperty name]];
+        stringVC.editableField.placeholder = self.fieldLabel;
+        [stringVC.editableField becomeFirstResponder];
+    }
+
+    else if ([viewController isKindOfClass:[WTBool class]]) {
+        WTBool *boolVC = (WTBool *)viewController;
+        boolVC.switchButton.on = (BOOL)[self.editedObject valueForKey:[self.selectedProperty name]];
+    }
+
+    else if ([viewController isKindOfClass:[WTDate class]]) {
+        WTDate *dateVC = [[WTDate alloc] init];
+        NSDate *theDate =  [self.editedObject valueForKey:[self.selectedProperty name]];
+        if (theDate) {
+            dateVC.datePicker.date = theDate;
+        } else {
+            dateVC.datePicker.date = [NSDate date];
+        }
+    }
+
+    else if ([viewController isKindOfClass:[WTNumber class]]) {
+        WTNumber *numberVC = (NSNumber *) viewController;
+        NSNumber *value = (NSNumber*) [self.editedObject valueForKey:[self.selectedProperty name]];
+
+    }
+
+    else if ([viewController isKindOfClass:[WTAudio class]]) {
+        WTAudio *audio = (WTAudio *) viewController;
+
+
+
+    }
+
+    else if ([viewController isKindOfClass:[WTImage class]]) {
+
+
+    }
+
+    else if ([viewController isKindOfClass:[WTSet class]]) {
+        WTSet *setVC = (WTSet *)viewController;
+        setVC.managedObjectContext = self.managedObjectContext;
+        setVC.selectedObjects = [self.editedObject valueForKey:[self.selectedProperty name]];
+    }
+}
+
+
 
 
 - (void)cancel {
@@ -116,36 +174,49 @@
     NSError *error;
     // Pass current value to the edited object, then pop.
 
-    if ([self.selectedProperty isKindOfClass:[NSAttributeDescription class]]) {
-        NSAttributeDescription *attributeDescription = (NSAttributeDescription *) self.selectedProperty;
-        NSAttributeType attributeType = [attributeDescription attributeType];
 
-        if (attributeType == NSStringAttributeType ) {
-            WTString *specificVC = [[self childViewControllers] firstObject];
-            NSLog(@"editableField = %@",specificVC.editableField.text);
-            [self.editedObject setValue:specificVC.editableField.text forKey:[attributeDescription name]];
-
-            [self.managedObjectContext save:&error];
-            [[self.managedObjectContext parentContext] save:&error];
-
-        }
-        if (attributeType == NSDateAttributeType) {
-            //[self.editedObject setValue:self.datePicker.date forKey:[self.selectedAttribute name]];
-        }
-        else {
-            //[self.editedObject setValue:self.textField.text forKey:[self.attributeDescription name]];
-        }
+//STRING
+    if ([self.currentDetailViewController isKindOfClass:[WTString class]]) {
+        WTString *inputVC = [[self childViewControllers] firstObject];
+        [self.editedObject setValue:inputVC.editableField.text forKey:[self.selectedProperty name]];
     }
 
-    else if ([self.selectedProperty isKindOfClass:[NSAttributeDescription class]]) {
-
-a FINIR sauvegarde avec indexPathsForSelectedRows dans WTSet
-
-
+//DATE
+    else if ([self.currentDetailViewController isKindOfClass:[WTDate class]]) {
+        WTDate *dateVC = [[self childViewControllers] firstObject];
+        [self.editedObject setValue:dateVC.datePicker.date forKey:[self.selectedProperty name]];
     }
-#warning yo complete (binary and bool)
-    [self.navigationController popViewControllerAnimated:YES];
+
+//INTEGER
+    else if ([self.currentDetailViewController isKindOfClass:[WTNumber class]]) {
+#warning to complete
+    }
+
+//AUDIO
+    else if ([self.currentDetailViewController isKindOfClass:[WTAudio class]]) {
+        WTAudio *audioVC = [[self childViewControllers] firstObject];
+        NSData *audioData= [NSData dataWithContentsOfURL:audioVC.outputFileURL];
+        [self.editedObject setValue:audioData forKey:[self.selectedProperty name]];
+    }
+
+//IMAGE
+    else if ([self.currentDetailViewController isKindOfClass:[WTImage class]]) {
+        WTImage *imageVC = [[self childViewControllers] firstObject];
+        NSData *imageData= UIImagePNGRepresentation([imageVC.capturedImages firstObject]);
+        [self.editedObject setValue:imageData forKey:[self.selectedProperty name]];
+    }
+
+//SET
+    else if ([self.currentDetailViewController isKindOfClass:[WTSet class]]) {
+        WTSet *inputVC = [[self childViewControllers] firstObject];
+        NSSet *record = [NSSet setWithSet:inputVC.selectedObjects];
+        [self.editedObject setValue:record forKey:self.selectedProperty.name];
+    }
     
+    [self.managedObjectContext save:&error];
+    [[self.managedObjectContext parentContext] save:&error];
+    [self.navigationController popViewControllerAnimated:YES];
+
 }
 
 - (void)presentDetailController:(UIViewController*)detailVC{
